@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vanshika Bhargava | AI/ML Portfolio</title>
+<meta name="description" content="Vanshika Bhargava — B.Tech CSE (AI/ML) student exploring AI, machine learning, programming and technology.">
+<style>
+:root{
+  --bg:#080812; --card:#111122; --card2:#15152a; --text:#f7f7fb; --muted:#aaa9bd;
+  --accent:#9b7cff; --accent2:#61d7ff; --border:rgba(255,255,255,.10);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;background:
+radial-gradient(circle at 80% 10%,rgba(155,124,255,.16),transparent 28%),
+radial-gradient(circle at 10% 40%,rgba(97,215,255,.10),transparent 25%),var(--bg);
+color:var(--text);line-height:1.6}
+a{text-decoration:none;color:inherit}
+nav{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;justify-content:space-between;align-items:center;
+padding:18px 7%;background:rgba(8,8,18,.72);backdrop-filter:blur(18px);border-bottom:1px solid var(--border)}
+.logo{font-weight:800;font-size:1.2rem;letter-spacing:.5px}.logo span{color:var(--accent)}
+nav ul{display:flex;gap:26px;list-style:none;color:var(--muted);font-size:.92rem}
+nav li:hover{color:#fff}
+.hero{min-height:100vh;display:grid;place-items:center;padding:130px 7% 80px}
+.hero-inner{max-width:1100px;width:100%;display:grid;grid-template-columns:1.25fr .75fr;gap:60px;align-items:center}
+.eyebrow{color:var(--accent2);font-weight:700;letter-spacing:2px;text-transform:uppercase;font-size:.8rem}
+h1{font-size:clamp(3.4rem,8vw,7rem);line-height:.95;margin:18px 0 25px;letter-spacing:-5px}
+.gradient{background:linear-gradient(90deg,#fff,var(--accent),var(--accent2));-webkit-background-clip:text;color:transparent}
+.hero p{font-size:1.12rem;color:var(--muted);max-width:650px}
+.buttons{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap}
+.btn{padding:13px 21px;border:1px solid var(--border);border-radius:999px;font-weight:700}
+.btn.primary{background:linear-gradient(90deg,var(--accent),#765cff);border:0}
+.btn:hover{transform:translateY(-2px)}
+.orbit{height:350px;width:350px;border-radius:50%;margin:auto;display:grid;place-items:center;
+border:1px solid rgba(155,124,255,.3);box-shadow:0 0 100px rgba(155,124,255,.12),inset 0 0 60px rgba(97,215,255,.06);
+position:relative}
+.orbit:before,.orbit:after{content:"";position:absolute;border:1px solid rgba(97,215,255,.25);border-radius:50%;inset:35px;transform:rotate(45deg)}
+.orbit:after{inset:75px;transform:rotate(-35deg)}
+.avatar{height:155px;width:155px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent),var(--accent2));
+font-size:3rem;font-weight:900;color:#080812;box-shadow:0 0 55px rgba(155,124,255,.4)}
+section{padding:95px 7%;max-width:1250px;margin:auto}
+.section-label{color:var(--accent2);font-size:.78rem;font-weight:800;letter-spacing:2px;text-transform:uppercase}
+h2{font-size:clamp(2rem,4vw,3.3rem);margin:8px 0 38px;letter-spacing:-1px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.025));border:1px solid var(--border);
+border-radius:22px;padding:26px;transition:.25s}
+.card:hover{transform:translateY(-5px);border-color:rgba(155,124,255,.5)}
+.card h3{margin:10px 0 8px}.card p{color:var(--muted);font-size:.95rem}
+.tag{display:inline-block;font-size:.72rem;padding:5px 9px;border-radius:999px;background:rgba(155,124,255,.13);color:#cfc5ff}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:25px}
+.skills{display:flex;flex-wrap:wrap;gap:12px}.skill{padding:12px 17px;border:1px solid var(--border);border-radius:13px;background:var(--card)}
+.project{min-height:190px;display:flex;flex-direction:column;justify-content:space-between}
+.project .num{font-size:.75rem;color:var(--accent2);font-weight:800}
+.project a{color:var(--accent2);font-weight:700}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.contact-box{padding:30px;border:1px solid var(--border);border-radius:22px;background:var(--card)}
+footer{text-align:center;padding:35px;color:var(--muted);border-top:1px solid var(--border)}
+/* Portfolio chatbot */
+.chat-launcher{position:fixed;right:24px;bottom:24px;z-index:100;display:flex;align-items:center;gap:10px;padding:14px 18px;border:0;border-radius:999px;background:linear-gradient(110deg,var(--accent),#765cff);color:white;font-family:inherit;font-size:.95rem;font-weight:700;box-shadow:0 12px 35px rgba(0,0,0,.35);cursor:pointer}
+.chat-launcher:hover{transform:translateY(-2px)}
+.chat-panel{position:fixed;right:24px;bottom:88px;z-index:101;width:min(390px,calc(100vw - 28px));height:min(570px,calc(100vh - 120px));display:none;flex-direction:column;overflow:hidden;border:1px solid rgba(155,124,255,.35);border-radius:22px;background:#0e0e1b;box-shadow:0 24px 70px rgba(0,0,0,.5)}
+.chat-panel.open{display:flex}
+.chat-header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:17px 18px;background:linear-gradient(110deg,rgba(155,124,255,.2),rgba(97,215,255,.08));border-bottom:1px solid var(--border)}
+.chat-title{font-weight:800}.chat-subtitle{font-size:.78rem;color:var(--muted)}
+.chat-close{border:1px solid var(--border);background:transparent;color:var(--text);border-radius:10px;width:34px;height:34px;cursor:pointer;font-size:1.15rem}
+.chat-messages{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px}
+.chat-message{max-width:90%;padding:11px 13px;border:1px solid var(--border);border-radius:15px;font-size:.9rem;white-space:pre-wrap;overflow-wrap:anywhere}
+.chat-message.bot{align-self:flex-start;background:#17172a;color:var(--text);border-bottom-left-radius:5px}
+.chat-message.user{align-self:flex-end;background:linear-gradient(110deg,#6e55cf,#4e65a8);color:white;border:0;border-bottom-right-radius:5px}
+.chat-quick{display:flex;flex-wrap:wrap;gap:7px;padding:0 14px 12px}
+.chat-quick button{font-size:.77rem;color:#d9d0ff;background:rgba(155,124,255,.1);border:1px solid rgba(155,124,255,.3);padding:7px 10px;border-radius:999px;cursor:pointer}
+.chat-form{display:flex;gap:8px;padding:12px;border-top:1px solid var(--border);background:#10101e}
+.chat-form input{min-width:0;flex:1;background:#19192b;border:1px solid var(--border);border-radius:12px;padding:12px;color:var(--text);font:inherit;outline:none}
+.chat-form input:focus{border-color:var(--accent)}
+.chat-form button{border:0;border-radius:12px;padding:0 15px;background:var(--accent);color:white;font-weight:800;cursor:pointer}
+.chat-note{font-size:.7rem;color:var(--muted);text-align:center;padding:0 12px 10px}
+@media(max-width:800px){.chat-launcher{right:14px;bottom:14px}.chat-panel{right:14px;bottom:78px}.chat-launcher .launcher-label{display:none}}
+@media(max-width:800px){
+ nav ul{display:none}.hero-inner,.about,.contact{grid-template-columns:1fr}.orbit{height:260px;width:260px}
+ .grid{grid-template-columns:1fr}.hero{padding-top:120px}h1{letter-spacing:-3px}
+}
+</style>
+</head>
+<body>
+<nav>
+  <a class="logo" href="#home">VB<span>.</span></a>
+  <ul>
+    <li><a href="#home">Home</a></li><li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li><li><a href="#projects">GitHub Repositories</a></li><li><a href="#contact">Contact</a></li><li><a href="#chatbot" id="nav-chat-link">AI Assistant</a></li>
+  </ul>
+</nav>
+
+<main>
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div>
+      <div class="eyebrow">CSE • AI/ML • Technology</div>
+      <h1>Vanshika<br><span class="gradient">Bhargava.</span></h1>
+      <p>I’m a B.Tech CSE (AI/ML) student at JECRC University, building my foundation in programming, artificial intelligence, machine learning and software development — one project at a time.</p>
+      <div class="buttons">
+        <a class="btn primary" href="#projects">Explore GitHub Work ↗</a>
+        <a class="btn" href="#contact">Let's Connect</a>
+      </div>
+    </div>
+    <div class="orbit"><div class="avatar">VB</div></div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="section-label">01 / About</div><h2>Learning technology.<br><span class="gradient">Building ideas.</span></h2>
+  <div class="about">
+    <div class="card"><span class="tag">Education</span><h3>B.Tech CSE — AI/ML</h3><p>JECRC University, Jaipur. Building a strong foundation in computer science, programming, data structures and AI/ML.</p></div>
+    <div class="card"><span class="tag">Focus</span><h3>AI + Software Development</h3><p>Exploring Python, C++, machine learning, generative AI, web development and practical problem-solving.</p></div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="section-label">02 / Skills</div><h2>My technical toolkit.</h2>
+  <div class="skills">
+    <span class="skill">C Programming</span><span class="skill">C++</span><span class="skill">Python</span>
+    <span class="skill">Data Structures & Algorithms</span><span class="skill">AI & Machine Learning</span>
+    <span class="skill">Generative AI</span><span class="skill">NLP</span><span class="skill">Web Development</span>
+    <span class="skill">Problem Solving</span><span class="skill">Git & GitHub</span>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="section-label">03 / GitHub Repositories</div><h2>My coding practice.</h2>
+  <div class="grid">
+    <article class="card project"><div><div class="num">01 / Python</div><h3>Python Basics</h3><p>Python fundamentals and beginner programming exercises.</p></div><a href="https://github.com/vbhargava1033/python-basics-25bcon1013" target="_blank" rel="noopener noreferrer">View repository ↗</a></article>
+    <article class="card project"><div><div class="num">02 / Python</div><h3>Fibonacci</h3><p>A programming exercise focused on generating Fibonacci numbers.</p></div><a href="https://github.com/vbhargava1033/python-basics-25BCON1013-fibonacci-main" target="_blank" rel="noopener noreferrer">View repository ↗</a></article>
+    <article class="card project"><div><div class="num">03 / Python</div><h3>Correcting Grade</h3><p>A Python practice repository for a grade-correction task.</p></div><a href="https://github.com/vbhargava1033/correcting-grade-25BCON1013-main" target="_blank" rel="noopener noreferrer">View repository ↗</a></article>
+    <article class="card project"><div><div class="num">04 / Python</div><h3>Struct to Dictionary</h3><p>A practice exercise involving converting structured data to a dictionary.</p></div><a href="https://github.com/vbhargava1033/python-basics-25BCON1013-struct-to-dict-main" target="_blank" rel="noopener noreferrer">View repository ↗</a></article>
+    <article class="card project"><div><div class="num">05 / Python</div><h3>Reading List</h3><p>A small project for working with a reading list.</p></div><a href="https://github.com/vbhargava1033/reading_list-main-" target="_blank" rel="noopener noreferrer">View repository ↗</a></article>
+    <article class="card project"><div><div class="num">06 / Python</div><h3>Quiz PE</h3><p>A quiz-focused programming project.</p></div><a href="https://github.com/vbhargava1033/QUIZ-PE-main" target="_blank" rel="noopener noreferrer">View repository ↗</a></article>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-label">04 / Contact</div><h2>Let’s build something<br><span class="gradient">interesting.</span></h2>
+  <div class="contact">
+    <div class="contact-box"><h3>Email</h3><p>Have a question or want to connect? Reach me by email.</p><br><a class="btn" href="mailto:bhargavavanshika2006@gmail.com">bhargavavanshika2006@gmail.com ↗</a></div>
+    <div class="contact-box"><h3>GitHub</h3><p>Explore my coding practice and repositories.</p><br><a class="btn" href="https://github.com/vbhargava1033" target="_blank" rel="noopener noreferrer">GitHub Profile ↗</a></div>
+  </div>
+</section>
+</main>
+
+<!-- A local FAQ chatbot: no API key or server required. Update its knowledge in the chatKnowledge object below. -->
+<div id="chatbot" aria-hidden="true"></div>
+<button class="chat-launcher" id="chatLauncher" type="button" aria-label="Open portfolio assistant" aria-expanded="false">
+  <span aria-hidden="true">✦</span><span class="launcher-label">Ask about Vanshika</span><span aria-hidden="true">↗</span>
+</button>
+<section class="chat-panel" id="chatPanel" role="dialog" aria-label="Portfolio assistant" aria-modal="false">
+  <div class="chat-header">
+    <div><div class="chat-title">✦ Vanshika’s Portfolio Assistant</div><div class="chat-subtitle">Ask about education, skills, work or projects</div></div>
+    <button class="chat-close" id="chatClose" type="button" aria-label="Close assistant">×</button>
+  </div>
+  <div class="chat-messages" id="chatMessages" aria-live="polite">
+    <div class="chat-message bot">Hi! I’m Vanshika’s portfolio assistant. Ask me about her education, skills, experience, GitHub projects, or how to contact her.</div>
+  </div>
+  <div class="chat-quick" aria-label="Suggested questions">
+    <button type="button" data-question="Tell me about Vanshika">About Vanshika</button>
+    <button type="button" data-question="What are her skills?">Skills</button>
+    <button type="button" data-question="Show her projects">Projects</button>
+    <button type="button" data-question="How can I contact her?">Contact</button>
+  </div>
+  <form class="chat-form" id="chatForm">
+    <input id="chatInput" type="text" maxlength="500" placeholder="Ask a question…" aria-label="Your question" autocomplete="off" required>
+    <button type="submit" aria-label="Send message">Send</button>
+  </form>
+  <div class="chat-note">Portfolio FAQ assistant · Replies use information added by Vanshika</div>
+</section>
+<script>
+const chatKnowledge = {
+  name: 'Vanshika Bhargava',
+  education: 'Vanshika Bhargava is pursuing a B.Tech in Computer Science and Engineering with a specialisation in Artificial Intelligence and Machine Learning (AI/ML) at JECRC University, Jaipur, Rajasthan.',
+  skills: 'Her listed technical interests and skills include C programming, C++, Python, Data Structures and Algorithms, AI and Machine Learning, Generative AI, NLP, Web Development, problem solving, and Git/GitHub.',
+  experience: 'Vanshika has been involved with the JECRC Incubation Centre in events and planning, including public relations and sponsorship-related work. She has also worked as an HR intern at LMDmax India Pvt. Ltd., gaining experience with communication, interview coordination, scheduling, and workplace documentation.',
+  github: 'You can explore Vanshika’s GitHub profile at https://github.com/vbhargava1033. Her portfolio currently links to six repositories: Python Basics, Fibonacci, Correcting Grade, Struct to Dictionary, Reading List, and Quiz PE.',
+  projects: [
+    ['Python Basics', 'https://github.com/vbhargava1033/python-basics-25bcon1013'],
+    ['Fibonacci', 'https://github.com/vbhargava1033/python-basics-25BCON1013-fibonacci-main'],
+    ['Correcting Grade', 'https://github.com/vbhargava1033/correcting-grade-25BCON1013-main'],
+    ['Struct to Dictionary', 'https://github.com/vbhargava1033/python-basics-25BCON1013-struct-to-dict-main'],
+    ['Reading List', 'https://github.com/vbhargava1033/reading_list-main-'],
+    ['Quiz PE', 'https://github.com/vbhargava1033/QUIZ-PE-main']
+  ],
+  email: 'bhargavavanshika2006@gmail.com'
+};
+const chatPanel = document.getElementById('chatPanel');
+const chatLauncher = document.getElementById('chatLauncher');
+const chatMessages = document.getElementById('chatMessages');
+const chatInput = document.getElementById('chatInput');
+function toggleChat(forceOpen) {
+  const open = typeof forceOpen === 'boolean' ? forceOpen : !chatPanel.classList.contains('open');
+  chatPanel.classList.toggle('open', open);
+  chatLauncher.setAttribute('aria-expanded', String(open));
+  chatPanel.setAttribute('aria-hidden', String(!open));
+  if (open) chatInput.focus();
+}
+function addChatMessage(text, role) {
+  const message = document.createElement('div');
+  message.className = 'chat-message ' + role;
+  message.textContent = text;
+  chatMessages.appendChild(message);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+function answerQuestion(rawQuestion) {
+  const q = rawQuestion.toLowerCase();
+  if (/(hi|hello|hey|good morning|good evening)/.test(q)) return 'Hi there! I can tell you about Vanshika’s education, skills, experience, projects, and contact details. What would you like to know?';
+  if (/(project|github|repository|repositories|code|repo)/.test(q)) {
+    return 'Here are Vanshika’s GitHub repositories:
+' + chatKnowledge.projects.map((p, i) => (i + 1) + '. ' + p[0] + ': ' + p[1]).join('
+');
+  }
+  if (/(email|contact|reach|connect|mail)/.test(q)) return 'You can contact Vanshika by email at ' + chatKnowledge.email + ' or visit her GitHub profile: https://github.com/vbhargava1033';
+  if (/(skill|technolog|program|language|know|proficien|technical)/.test(q)) return chatKnowledge.skills;
+  if (/(experience|intern|internship|incubation|event|work|job|hr)/.test(q)) return chatKnowledge.experience;
+  if (/(education|college|university|degree|study|studying|course|branch|major)/.test(q)) return chatKnowledge.education;
+  if (/(who|about|introduce|vanshika|bio|profile|background)/.test(q)) return chatKnowledge.name + ' is a B.Tech CSE (AI/ML) student at JECRC University in Jaipur. She is building her programming and AI/ML foundation, exploring software development, and has experience in student events and HR internship work. Ask about her skills, experience, repositories, or contact details for more.';
+  if (/(help|what can you|what do you)/.test(q)) return 'I can answer questions about Vanshika’s education, technical skills, experience, GitHub repositories, and email. Try asking “What are her skills?” or “Show her projects.”';
+  return 'I don’t have that information in my portfolio notes yet. You can ask me about Vanshika’s education, skills, experience, GitHub projects, or contact details—or email her at ' + chatKnowledge.email + ' for a direct question.';
+}
+function sendChatQuestion(question) {
+  const trimmed = question.trim();
+  if (!trimmed) return;
+  addChatMessage(trimmed, 'user');
+  addChatMessage(answerQuestion(trimmed), 'bot');
+}
+chatLauncher.addEventListener('click', () => toggleChat());
+document.getElementById('chatClose').addEventListener('click', () => toggleChat(false));
+document.getElementById('chatForm').addEventListener('submit', (event) => {
+  event.preventDefault();
+  sendChatQuestion(chatInput.value);
+  chatInput.value = '';
+  chatInput.focus();
+});
+document.querySelectorAll('[data-question]').forEach(button => button.addEventListener('click', () => sendChatQuestion(button.dataset.question)));
+document.getElementById('nav-chat-link').addEventListener('click', () => toggleChat(true));
+document.addEventListener('keydown', event => { if (event.key === 'Escape' && chatPanel.classList.contains('open')) toggleChat(false); });
+</script>
+<footer>© 2026 Vanshika Bhargava • Built with curiosity & code.</footer>© 2026 Vanshika Bhargava • Built with curiosity & code.</footer>
+</body>
+</html>
